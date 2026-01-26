@@ -47,8 +47,11 @@ padding:10px;
 }
 
 /* mobile */
-@media(max-width:600px){
-.box{
-width:80%;
-}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 5vw;
+  }
+  .box {
+    width: 90%;
+  }
 }
