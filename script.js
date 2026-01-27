@@ -33,3 +33,11 @@ function calcCalculate(){
     calcDisplay.innerText = "Error";
   }
 }
+
+
+function openSubject(name){
+  alert("You clicked: " + name);
+
+  // future me yahan redirect laga sakta hai
+  // window.location.href = name + ".html";
+}
