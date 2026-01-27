@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Image to PDF</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f2f2f2;
+  padding:20px;
+  text-align:center;
+}
+h2{color:#1f3c88;}
+
+#drop-area{
+  border:2px dashed #1f3c88;
+  padding:20px;
+  margin:15px;
+  border-radius:10px;
+  background:#fff;
+}
+
+#gallery{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.img-box{
+  position:relative;
+  border:1px solid #ccc;
+  padding:5px;
+  background:#fff;
+}
+
+.img-box img{
+  width:120px;
+  height:150px;
+  object-fit:cover;
+}
+
+.remove-btn{
+  position:absolute;
+  top:0;
+  right:0;
+  background:red;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+button{
+  padding:10px 15px;
+  margin:10px;
+  border:none;
+  background:#1f3c88;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Advanced Image to PDF Converter</h2>
+
+<input type="file" id="fileInput" multiple accept="image/*">
+<div id="drop-area">Drag & Drop Images Here</div>
+
+<div id="gallery"></div>
+
+<button onclick="makePDF()">Convert to PDF</button>
+
+<script>
+let images = [];
+
+const fileInput = document.getElementById("fileInput");
+const gallery = document.getElementById("gallery");
+const dropArea = document.getElementById("drop-area");
+
+fileInput.addEventListener("change", e => {
+  addImages(e.target.files);
+});
+
+dropArea.addEventListener("dragover", e=>{
+  e.preventDefault();
+});
+dropArea.addEventListener("drop", e=>{
+  e.preventDefault();
+  addImages(e.dataTransfer.files);
+});
+
+function addImages(files){
+  for(let file of files){
+    images.push(file);
+  }
+  showImages();
+}
+
+function showImages(){
+  gallery.innerHTML="";
+  images.forEach((file,index)=>{
+    let div=document.createElement("div");
+    div.className="img-box";
+    let img=document.createElement("img");
+    img.src=URL.createObjectURL(file);
+
+    let btn=document.createElement("button");
+    btn.textContent="X";
+    btn.className="remove-btn";
+    btn.onclick=()=>{images.splice(index,1);showImages();}
+
+    div.appendChild(img);
+    div.appendChild(btn);
+    gallery.appendChild(div);
+  });
+}
+
+async function makePDF(){
+  if(images.length==0){
+    alert("Add images first!");
+    return;
+  }
+  const {jsPDF}=window.jspdf;
+  const pdf=new jsPDF();
+
+  for(let i=0;i<images.length;i++){
+    const imgData=await toBase64(images[i]);
+    let img=new Image();
+    img.src=imgData;
+    await new Promise(r=>img.onload=r);
+
+    let w=pdf.internal.pageSize.getWidth();
+    let h=(img.height/img.width)*w;
+    if(i>0) pdf.addPage();
+    pdf.addImage(img,"JPEG",0,0,w,h);
+  }
+  pdf.save("images.pdf");
+}
+
+function toBase64(file){
+  return new Promise((resolve,reject)=>{
+    let reader=new FileReader();
+    reader.onload=()=>resolve(reader.result);
+    reader.onerror=reject;
+    reader.readAsDataURL(file);
+  });
+}
+</script>
+</body>
+</html>
