@@ -9,7 +9,7 @@ header{
   background: linear-gradient(135deg, #020617, #0F172A, #1E293B);
   color:#F9FAFB;
   padding:20px;
-  border-bottom:2px solid #FACC15;
+  border:2px solid #FACC15;
   box-shadow:0 4px 20px rgba(250,204,21,0.4);
 }
 .logo{
@@ -72,9 +72,12 @@ color:#5d4037;
 }
 
 footer{
-background:#0F172A;
-color:#ffffff;
-padding:10px;
+background: linear-gradient(135deg, #020617, #0F172A, #1E293B);
+  color:#F9FAFB;
+  padding:20px;
+  border:2px solid #FACC15;
+  box-shadow:0 4px 20px rgba(250,204,21,0.4);
+  
 }
 
 /* mobile */
@@ -183,4 +186,44 @@ padding:10px;
 @media(max-width:400px){
   .calculator-display { font-size:18px; padding:8px; }
   .calculator-row button { height:40px; font-size:16px; }
+}
+.heading {
+    color: black;
+}
+.sub-heading {
+    color: grey;
+}
+
+
+/* Main Section */
+#my-study-station{
+  padding:20px;
+  font-family:Arial, sans-serif;
+}
+
+/* Main Heading Background */
+#my-study-station .card1{
+  background:#1f3c88 ;
+  /* yahan color change kar sakta hai */
+  border:2px solid transparent;
+  box-shadow:0 0 20px rgba(250,204,21,0.6);
+  width:fit-content;
+  color:white;
+  padding:12px;
+  border-radius:6px;
+  text-align:center;
+}
+
+/* Card simple look */
+#my-study-station .card{
+  background:#ffffff;
+  padding:12px;
+  margin:12px 0;
+  border:1px solid #ddd;
+  border-radius:5px;
+}
+
+/* Sub Headings */
+#my-study-station h3{
+  color:#1f3c88;
 }
