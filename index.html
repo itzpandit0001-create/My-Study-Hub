@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Study Station</title>
-<link rel="stylesheet" href="style.css">
 <meta name="google-site-verification" content="gZRwn7HN7Eil-sVlOrBWapGibsw1fE43Yae-7lqkccs" />
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-<h1>My Study Station</h1>
-<p>All your AKTU Notes, PYQs & Syllabus in one place</p>
+  <div class="logo">
+    <span class="logo-icon">🎓</span>
+    <div class="logo-text">
+      My Study Station
+      <div class="tagline">AKTU B.Tech Student Portal</div>
+    </div>
+  </div>
+<p>All your AKTU Notes, PYQs & Syllabus in one place . 100% Free. No Login Required.</p>
 </header>
 
 <div class="row">
@@ -19,14 +25,21 @@
 <a href="https://whatsapp.com/channel/0029Va4dypZLikgEWv0xgQ3F" target="_blank" class="box">AKTU All Updates</a>
 </div>
 
-<h2>AKTU (B.Tech) Portal</h2>
+<h2 class="aktu-banner">AKTU [B.Tech] Portal</h2>
 
 <div class="row">
 <a href="dashboard.html" class="box">Dashboard</a>
-<a href="#" class="box">Latest Syllabus</a>
-<a href="#" class="box">Previous Year Questions</a>
+<div class="box" onclick="openLink('https://drive.google.com/drive/folders/167KJ0oIziY9q-E4lC7vK-BC1h-gBtdql')">Previous Year Questions</div>
+<div class="box" onclick="openLink('https://drive.google.com/drive/folders/16YjOIn4FPOytyN653DFBTa3Vt4n5pAqV')">Latest AKTU Syllabus</div>
 </div>
 
+<h2 class="tool-banner">AKTU Tools</h2>
+
+<div class="row">
+<a href="calculator.html" class="box">Calculator</a>
+<div class="box" onclick="openLink('')">Pdf Tool</div>
+</div>
+  
 <section class="about">
 <h2>What is My Study Station?</h2>
 <p>
@@ -43,10 +56,69 @@ make learning simple and organized.
 </p>
 </section>
 
+<!-- ===== Always Open FAQ Section ===== -->
+<section id="faq" style="padding:20px; font-family:Arial, sans-serif;">
+  <h2 style="
+  text-align:center;
+  color:#F9FAFB;
+  padding:14px 24px;
+  border:2px solid transparent;
+  border-radius:14px;
+  background:
+    linear-gradient(135deg, #0F172A, #1E293B) padding-box,
+    linear-gradient(90deg, #FACC15, #EAB308, #F59E0B) border-box;
+  box-shadow: 0 0 18px rgba(250,204,21,0.6);
+  display:inline-block;
+  letter-spacing:1px;
+">
+  My Study Station - Student Guide
+</h2>
+  <div class="faq-item" style="margin-bottom:15px;">
+    <h3 style="background:#A7EBF2; color:#000; padding:10px;">1️⃣ My Study Station kya hai?</h3>
+    <p style="padding:10px; border:1px solid #ddd; border-top:none; margin:0;">
+      My Study Station ek one-stop platform hai AKTU aur engineering students ke liye. Notes, PYQs, assignments, practical aur career guidance sab ek jagah.
+    </p>
+  </div>
+
+  <div class="faq-item" style="margin-bottom:15px;">
+    <h3 style="background:#A7EBF2; color:#000; padding:10px;">2️⃣ Ye platform kyun use karein?</h3>
+    <p style="padding:10px; border:1px solid #ddd; border-top:none; margin:0;">
+      Time save, confusion kam, aur easy learning with simple short points.
+    </p>
+  </div>
+
+  <div class="faq-item" style="margin-bottom:15px;">
+    <h3 style="background:#A7EBF2; color:#000; padding:10px;">3️⃣ Kaun use kar sakta hai?</h3>
+    <p style="padding:10px; border:1px solid #ddd; border-top:none; margin:0;">
+      AKTU students, engineering students, exam/viva/practical prep karne wale, aur freshers jo placement ke liye tayyar ho rahe hain.
+    </p>
+  </div>
+
+  <div class="faq-item" style="margin-bottom:15px;">
+    <h3 style="background:#A7EBF2; color:#000; padding:10px;">4️⃣ Kya free hai?</h3>
+    <p style="padding:10px; border:1px solid #ddd; border-top:none; margin:0;">
+      Haan, completely free. Tools aur study resources without any hidden charges.
+    </p>
+  </div>
+
+  <div class="faq-item" style="margin-bottom:15px;">
+    <h3 style="background:#A7EBF2; color:#000; padding:10px;">5️⃣ Account ya login ki zarurat?</h3>
+    <p style="padding:10px; border:1px solid #ddd; border-top:none; margin:0;">
+      Nahi, seedha content aur tools access kar sakte ho bina signup ke.
+    </p>
+  </div>
+
+</section>
 <footer>
 <p>Contact: itz.pandit0001@gmail.com</p>
 <p>Editor: Bharat Sharma</p>
 </footer>
+
+<script>
+function openLink(url) {
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
