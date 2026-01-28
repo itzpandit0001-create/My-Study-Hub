@@ -6,3 +6,4 @@ function openLink(link){
 /*quantum*/
 function openSubject(name){
   window.open(name,"_blank");
+}
